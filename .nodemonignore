@@ -1,0 +1,15 @@
+.git*
+/client
+/components
+/gfx
+/log
+/node_modules
+/public
+/test
+/views
+.DS_Store
+/.gitignore
+/Makefile
+/package.json
+/component.json
+/README.md

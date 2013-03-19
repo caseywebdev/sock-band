@@ -1,0 +1,29 @@
+{
+  "name": "sock-band",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Casey Foster <c@sey.me>",
+  "main": "server",
+  "dependencies": {
+    "backbone": "git://github.com/documentcloud/backbone",
+    "express": "x",
+    "socket.io": "x",
+    "underscore": "x",
+    "underscore.string": "x",
+    "underscore-express": "x"
+  },
+  "devDependencies": {
+    "chai": "x",
+    "mocha": "x",
+    "nib": "x",
+    "nodemon": "x",
+    "stylus": "x",
+    "uglify-js": "x",
+    "watchr": "git://github.com/caseywebdev/watchr#pre-bug",
+    "xl8": "x"
+  },
+  "engines": {
+    "node": "x",
+    "npm": "x"
+  }
+}

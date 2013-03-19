@@ -1,0 +1,17 @@
+<%
+var defaultTitle = 'Sock Band | Rock Your Sock(et)s Off';
+o.title = o.title ? o.title + ' | Sock Band' : defaultTitle;
+%>
+<!doctype html>
+
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <link href='/index.css' rel='stylesheet'>
+    <script src='/index.js'></script>
+    <title><%- o.title %></title>
+  </head>
+
+  <body>
+    <div id='main'>

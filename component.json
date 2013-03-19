@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dpr": "x",
+    "jquery": "x",
+    "jquery-mobile-events": "x"
+  }
+}

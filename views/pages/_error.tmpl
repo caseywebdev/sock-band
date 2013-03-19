@@ -1,0 +1,7 @@
+<%
+o.title = o.status + ' ' + o.message;
+%>
+<%= o.include('_header') %>
+<h1>Sock Band</h1>
+<h3><%- o.status %> <%- o.message %></h3>
+<%= o.include('_footer') %>
