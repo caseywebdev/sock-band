@@ -20,17 +20,24 @@
 
   // Define global namespace
   var app = window.app = {
-    ready: function () {
+    domReady: function () {
       $('html').addClass('dpr-' + dpr());
+      var soundListView = new app.ListView({
+        collection: app.Sound.all,
+        modelView: app.SoundView
+      });
+      $('body').append(soundListView.el);
     },
 
-    init: function () {
-      app.Sound.all.fetch({
-        success: function (sounds) { sounds.invoke('loadSound'); }
+    soundReady: function () {
+      app.Sound.all.invoke('load');
+      app.Sound.all.on('add', function (sound) { sound.load(); });
+    },
+
+    socketReady: function () {
+      app.socket.emit('sounds', null, function (data) {
+        app.Sound.all.set(data);
       });
     }
   };
-
-  // Run on DOM ready, build intial view
-  $(app.ready);
 })();

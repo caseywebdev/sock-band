@@ -8,13 +8,19 @@
 
   var Model = node ? require('./model') : app.Model;
 
-  var User = Model.extend({});
+  var User = Model.extend({
+    toJSON: function () {
+      return this.omit('client');
+    }
+  });
 
   User.Collection = Model.Collection.extend({
     model: User,
 
     url: '/users'
   });
+
+  User.all = new User.Collection();
 
   node ? module.exports = User : app.User = User;
 })();

@@ -1,18 +1,22 @@
 var _ = require('underscore');
 var User = require('../../../models/user');
-User.all = new User.Collection();
 
-var events = {
-  'disconnect': 'disconnect'
-};
+var events = [
+  'sounds',
+  'play',
+  'disconnect'
+];
 
 module.exports = function (app) {
   app.io.sockets.on('connection', function (client) {
-    var user = new User({client: client});
+    var user = new User({id: client.id, client: client});
     User.all.add(user);
-    _.each(events, function (file, event) {
+    client.emit('users', User.all);
+    client.broadcast.emit('users', User.all);
+    _.each(events, function (event) {
       client.on(event, function () {
-        require('./' + file).apply(this, [user].concat([].slice(arguments)));
+        var args = [].slice.apply(arguments);
+        require('./' + event).apply(this, [user].concat(args));
       });
     });
   });

@@ -6,10 +6,13 @@
   var node = typeof window === 'undefined';
   var app = node ? {} : window.app;
 
+  var _ = node ? require('underscore') : window._;
   var Model = node ? require('./model') : app.Model;
   var soundManager = node ? null : window.soundManager;
 
   var Sound = Model.extend({
+    tracks: 10,
+
     gfxPath: function () {
       return '/gfx/sounds/' + this.id + '.png';
     },
@@ -18,12 +21,21 @@
       return '/audio/sounds/' + this.id + '.mp3';
     },
 
-    loadSound: function () {
-      soundManager.createSound({id: this.id, url: this.audioPath()});
+    load: function () {
+      if (this.loaded) return;
+      this.loaded = true;
+      this.track = -1;
+      _.times(this.tracks, function () {
+        soundManager.createSound(this.nextTrack(), this.audioPath());
+      }, this);
+    },
+
+    nextTrack: function () {
+      return this.id + '-' + (++this.track % this.tracks);
     },
 
     play: function () {
-      soundManager.play(this.id);
+      if (this.loaded) soundManager.play(this.nextTrack());
     }
   });
 
