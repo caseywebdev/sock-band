@@ -2,12 +2,16 @@ var _ = require('underscore');
 var config = require('../config');
 var express = require('express');
 var fs = require('fs');
+var http = require('http');
+var io = require('socket.io');
 var os = require('os');
 
 var app = express();
+var server = http.createServer(app);
+app.io = io.listen(server);
 
 // Bind to port.
-app.listen(config.serverPort);
+server.listen(config.serverPort);
 
 // All lower case and no trailing slashes allowed.
 app.enable('case sensitive routing');

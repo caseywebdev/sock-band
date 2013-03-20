@@ -9,7 +9,6 @@
     "express": "x",
     "socket.io": "x",
     "underscore": "x",
-    "underscore.string": "x",
     "underscore-express": "x"
   },
   "devDependencies": {

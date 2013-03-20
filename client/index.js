@@ -3,7 +3,6 @@
 //= require socket-io/dist/socket.io
 //= require sound-manager-2/script/soundmanager2
 //= require underscore/underscore
-//= require underscore.string/lib/underscore.string
 //= require backbone/backbone
 //= require dpr/dpr.js
 //= requireSelf
@@ -26,7 +25,7 @@
     },
 
     init: function () {
-      (app.sounds = new app.Sound.Collection()).fetch({
+      app.Sound.all.fetch({
         success: function (sounds) { sounds.invoke('loadSound'); }
       });
     }

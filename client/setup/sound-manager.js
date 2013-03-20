@@ -6,6 +6,7 @@
 
   soundManager.setup({
     url: '/swf',
-    onready: app.init
+    onready: app.init,
+    debugMode: false
   });
 })();

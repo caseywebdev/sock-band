@@ -20,6 +20,10 @@
 
     loadSound: function () {
       soundManager.createSound({id: this.id, url: this.audioPath()});
+    },
+
+    play: function () {
+      soundManager.play(this.id);
     }
   });
 
@@ -28,6 +32,8 @@
 
     url: '/sounds'
   });
+
+  Sound.all = new Sound.Collection();
 
   node ? module.exports = Sound : app.Sound = Sound;
 })();
