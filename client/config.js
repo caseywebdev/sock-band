@@ -6,6 +6,7 @@
   var env = !location.href.indexOf(path) ? 'production' : 'development';
 
   app.config = {
-    env: env
+    env: env,
+    serverUrl: location.protocol + '//' + location.host
   };
 })();

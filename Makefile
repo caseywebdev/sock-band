@@ -30,4 +30,7 @@ test:
 test-w:
 	$(WATCHR) -w models,server,test -- make test > /dev/null
 
+convert:
+	./scripts/aif-to-mp3.sh
+
 .PHONY: css server test

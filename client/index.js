@@ -1,5 +1,7 @@
 //= require jquery/jquery
 //= require jquery-mobile-events/jquery-mobile-events
+//= require socket-io/dist/socket.io
+//= require sound-manager-2/script/soundmanager2
 //= require underscore/underscore
 //= require underscore.string/lib/underscore.string
 //= require backbone/backbone
@@ -21,6 +23,12 @@
   var app = window.app = {
     ready: function () {
       $('html').addClass('dpr-' + dpr());
+    },
+
+    init: function () {
+      (app.sounds = new app.Sound.Collection()).fetch({
+        success: function (sounds) { sounds.invoke('loadSound'); }
+      });
     }
   };
 
