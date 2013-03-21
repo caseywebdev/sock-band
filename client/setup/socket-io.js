@@ -9,11 +9,11 @@
   app.socket.on('connect', app.socketReady);
   app.socket.on('users', function (data) { app.User.all.set(data); });
   app.socket.on('play', function (data) {
-    var timeToPlay = data.t + app.offset + app.config.buffer;
-    var delay = timeToPlay - new Date();
-    console.log('Time to wait for play: ' + delay);
+    var delay = data.t - new Date();
+    console.log('ms to wait for play: ' + delay);
     _.delay(function () {
       app.Sound.all.get(data).play();
     }, delay);
   });
+  app.socket.on('poll', function (data, cb) { cb({t: +new Date()}); });
 })();

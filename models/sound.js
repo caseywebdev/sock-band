@@ -36,7 +36,7 @@
 
     emit: function () {
       this.play();
-      app.socket.emit('play', {id: this.id, t: +new Date() + app.offset});
+      app.socket.emit('play', {id: this.id, t: +new Date()});
     },
 
     play: function () {

@@ -3,7 +3,9 @@ var _ = require('underscore');
 var env = process.env.NODE_ENV || 'development';
 
 var config = module.exports = {
-  env: env
+  env: env,
+  buffer: 250,
+  pollInterval: 5000
 };
 
 _.extend(config,
