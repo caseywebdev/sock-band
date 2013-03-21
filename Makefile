@@ -2,7 +2,7 @@ BIN=node_modules/.bin/
 NODEMON=$(BIN)nodemon
 MOCHA=$(BIN)mocha
 WATCHR=$(BIN)watchr
-XL8=$(BIN)xl8 index -gv -O '{"processors.tmpl.options.variable":"o","processors.styl.options.nib": true}' $(ARGS)
+COGS=$(BIN)cogs index -gv -O '{"processors.tmpl.options.variable":"o","processors.styl.options.nib": true}' $(ARGS)
 
 dev:
 	make -j server js-w css-w test-w
@@ -14,12 +14,12 @@ server:
 	$(NODEMON) -q server
 
 js:
-	$(XL8) -o public/index.js -p views/jst,client,components,node_modules
+	$(COGS) -o public/index.js -p views/jst,client,components,node_modules
 
 js-w:
 	make ARGS='-w models,views/jst,client/setup,client/views,client/config.js,client/index.js' js
 css:
-	$(XL8) -o public/index.css -p css,components,node_modules
+	$(COGS) -o public/index.css -p css,components,node_modules
 
 css-w:
 	make ARGS='-w css' css
