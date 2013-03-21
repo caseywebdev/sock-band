@@ -15,27 +15,16 @@
   'use strict';
 
   var $ = window.jQuery;
+  var _ = window._;
   var dpr = window.dpr;
 
   // Define global namespace
   var app = window.app = {
-    lag: 0,
-    lags: [],
-
-    offset: 0,
-    offsets: [],
+    monitor: false,
 
     domReady: function () {
       $('html').addClass('dpr-' + dpr());
-      var soundListView = new app.ListView({
-        collection: app.Sound.all,
-        modelView: app.SoundView
-      });
-      $('body').append(soundListView.el);
-      $(document).on('keydown', function (ev) {
-        var sound = app.Sound.all.at(ev.which - 65);
-        if (sound) sound.emit();
-      });
+      new app.MainView();
     },
 
     soundReady: function () {
@@ -44,6 +33,13 @@
     },
 
     socketReady: function () {
+      app.socket.on('users', function (data) { app.User.all.set(data); });
+      app.socket.on('play', function (data) {
+        _.delay(function () {
+          if (!app.monitor) app.Sound.all.get(data).play();
+        }, data.t - new Date());
+      });
+      app.socket.on('poll', function (data, cb) { cb({t: +new Date()}); });
       app.socket.emit('sounds', null, function (data) {
         app.Sound.all.set(data);
       });
