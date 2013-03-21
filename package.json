@@ -1,7 +1,7 @@
 {
   "name": "sock-band",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.1-5",
   "author": "Casey Foster <c@sey.me>",
   "main": "server",
   "dependencies": {
@@ -20,6 +20,10 @@
     "uglify-js": "x",
     "watchr": "git://github.com/caseywebdev/watchr#pre-bug",
     "xl8": "x"
+  },
+  "subdomain": "sockband",
+  "scripts": {
+    "start": "node server"
   },
   "engines": {
     "node": "x",

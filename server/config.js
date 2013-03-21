@@ -8,7 +8,7 @@ var config = module.exports = {
 
 _.extend(config,
   env === 'production' ? {
-    serverUrl: 'http://sockband.com???',
+    serverUrl: 'http://sockband.jit.su',
     serverPort: 80
   } : env === 'development' ? {
     serverUrl: 'http://localhost:3333',
