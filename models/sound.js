@@ -26,7 +26,7 @@
       this.loaded = true;
       this.track = -1;
       _.times(this.tracks, function () {
-        soundManager.createSound(this.nextTrack(), this.audioPath());
+        soundManager.createSound(this.nextTrack(), this.audioPath()).load();
       }, this);
     },
 
@@ -34,8 +34,17 @@
       return this.id + '-' + (++this.track % this.tracks);
     },
 
+    emit: function () {
+      this.play();
+      app.socket.emit('play', {id: this.id, t: +new Date() + app.offset});
+    },
+
     play: function () {
       if (this.loaded) soundManager.play(this.nextTrack());
+    },
+
+    key: function () {
+      return String.fromCharCode(65 + Sound.all.indexOf(this));
     }
   });
 

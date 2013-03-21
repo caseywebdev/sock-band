@@ -3,7 +3,6 @@
     "dpr": "x",
     "jquery": "x",
     "jquery-mobile-events": "x",
-    "socket-io": "LearnBoost/socket.io-client#0.9.11",
     "sound-manager-2": "scottschiller/SoundManager2"
   }
 }

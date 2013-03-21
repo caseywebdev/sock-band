@@ -7,7 +7,8 @@
   soundManager.setup({
     url: '/swf',
     onready: app.soundReady,
-    debugMode: true,
+    debugMode: false,
+    useFlashBlock: false,
     useHighPerformance: true,
     flashVersion: 9
   });

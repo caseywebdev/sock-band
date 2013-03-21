@@ -4,6 +4,7 @@ var User = require('../../../models/user');
 var events = [
   'sounds',
   'play',
+  'ping',
   'disconnect'
 ];
 

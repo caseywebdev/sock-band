@@ -1,5 +1,3 @@
-module.exports = function (user, sound) {
-  var client = user.get('client');
-  //client.emit('play', sound);
-  client.broadcast.emit('play', sound);
+module.exports = function (user, data) {
+  user.get('client').broadcast.volatile.emit('play', data);
 };

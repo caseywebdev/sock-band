@@ -16,12 +16,9 @@
     },
 
     events: {
-      'vmousedown': 'play'
+      'vmousedown': 'emit'
     },
 
-    play: function () {
-      //this.model.play();
-      app.socket.emit('play', this.model);
-    }
+    emit: function () { this.model.emit(); }
   });
 })();

@@ -7,6 +7,8 @@
 
   app.config = {
     env: env,
-    serverUrl: location.protocol + '//' + location.host
+    serverUrl: location.protocol + '//' + location.host,
+    buffer: 250,
+    pingInterval: 5000
   };
 })();
