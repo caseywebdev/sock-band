@@ -8,8 +8,46 @@
 global-reset()
 
 body
-  padding 25px
   text-resize 100%
+  font-family 'Helvetica Neue', Helvetica, 'Lucida Grande', Arial, sans-serif
+  dpr('/gfx/bkg', 'png', 22px 24px)
+  text-align center
+  color #fff
+  text-shadow 0 1px 2px rgba(0, 0, 0, .75)
 
 .sound
+  display inline-block
+  margin 2px
+  width 200px
+  background #333
+  box-shadow 0 1px 3px rgba(0, 0, 0, .75)
+  border-radius 3px
+  &.js-playing
+    background #d40
+  &.js-transition
+    transition all .5s ease-out
+
+.name
   padding 10px
+  text-align center
+  background linear-gradient(#555, #444)
+  font-weight bold
+  border-radius top 3px
+  box-shadow 0 1px 2px rgba(0, 0, 0, .5)
+
+.key
+  padding 30px
+  font-size 30px
+
+.logo
+  height 100px
+  dpr('/gfx/logo', 'png', 339px 100px, no-repeat center)
+
+.toggle-monitor
+  position fixed
+  top 0
+  right 0
+  padding 10px
+  background #d40
+  border-bottom-left-radius 3px
+  box-shadow 0 1px 3px rgba(0, 0, 0, .5);

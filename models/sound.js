@@ -40,11 +40,14 @@
     },
 
     play: function () {
-      if (this.loaded) soundManager.play(this.nextTrack());
+      if (this.loaded) {
+        this.trigger('play');
+        soundManager.play(this.nextTrack());
+      }
     },
 
     key: function () {
-      return String.fromCharCode(65 + Sound.all.indexOf(this));
+      return String.fromCharCode(this.get('charCode'));
     }
   });
 
@@ -54,7 +57,88 @@
     url: '/sounds'
   });
 
-  Sound.all = new Sound.Collection();
+  Sound.all = new Sound.Collection([{
+      id: 'e-chord',
+      charCode: 81,
+      name: 'E'
+    }, {
+      id: 'eb-chord',
+      charCode: 87,
+      name: 'E♭'
+    }, {
+      id: 'f-chord',
+      charCode: 69,
+      name: 'F'
+    }, {
+      id: 'fs-chord',
+      charCode: 82,
+      name: 'F♯'
+    }, {
+      id: 'g-chord',
+      charCode: 65,
+      name: 'G'
+    }, {
+      id: 'gs-chord',
+      charCode: 83,
+      name: 'G♯'
+    }, {
+      id: 'a-chord',
+      charCode: 68,
+      name: 'A'
+    }, {
+      id: 'b-chord',
+      charCode: 70,
+      name: 'B'
+    }, {
+      id: 'bb-chord',
+      charCode: 90,
+      name: 'B♭'
+    }, {
+      id: 'c-chord',
+      charCode: 88,
+      name: 'C'
+    }, {
+      id: 'cs-chord',
+      charCode: 67,
+      name: 'C♯'
+    }, {
+      id: 'd-chord',
+      charCode: 86,
+      name: 'D'
+    }, {
+      id: 'hh-closed',
+      charCode: 73,
+      name: 'High-hat (Closed)'
+    }, {
+      id: 'hh-open',
+      charCode: 79,
+      name: 'High-hat (Open)'
+    }, {
+      id: 'crash',
+      charCode: 80,
+      name: 'Crash'
+    }, {
+      id: 'snare',
+      charCode: 85,
+      name: 'Snare'
+    }, {
+      id: 'kick',
+      charCode: 89,
+      name: 'Kick'
+    }, {
+      id: 'clap',
+      charCode: 84,
+      name: 'Clap'
+    }, {
+      id: 'tom',
+      charCode: 75,
+      name: 'Tom'
+    }, {
+      id: 'snap',
+      charCode: 74,
+      name: 'Snap'
+    }
+  ]);
 
   node ? module.exports = Sound : app.Sound = Sound;
 })();

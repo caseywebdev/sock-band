@@ -15,7 +15,7 @@
         modelView: app.SoundView
       }).render().el);
       $(document).on('keydown', function (ev) {
-        var sound = app.Sound.all.at(ev.which - 65);
+        var sound = app.Sound.all.findWhere({charCode: ev.which});
         if (sound) sound.emit();
       });
     },

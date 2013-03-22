@@ -29,7 +29,6 @@
 
     soundReady: function () {
       app.Sound.all.invoke('load');
-      app.Sound.all.on('add', function (sound) { sound.load(); });
     },
 
     socketReady: function () {
@@ -40,9 +39,6 @@
         }, data.t - new Date());
       });
       app.socket.on('poll', function (data, cb) { cb({t: +new Date()}); });
-      app.socket.emit('sounds', null, function (data) {
-        app.Sound.all.set(data);
-      });
     }
   };
 })();

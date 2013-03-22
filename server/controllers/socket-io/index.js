@@ -2,7 +2,6 @@ var _ = require('underscore');
 var User = require('../../../models/user');
 
 var events = [
-  'sounds',
   'play',
   'disconnect'
 ];

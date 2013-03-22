@@ -4,6 +4,7 @@
   'use strict';
 
   var app = window.app;
+
   var jst = window.jst;
 
   app.SoundView = app.View.extend({
@@ -12,6 +13,7 @@
 
     render: function () {
       this.$el.html(this.template({sound: this.model}));
+      this.listenTo(this.model, 'play', this.play);
       return this;
     },
 
@@ -19,6 +21,11 @@
       'vmousedown': 'emit'
     },
 
-    emit: function () { this.model.emit(); }
+    emit: function () { this.model.emit(); },
+
+    play: function () {
+      this.$el.removeClass('js-transition').addClass('js-playing').height();
+      this.$el.addClass('js-transition').removeClass('js-playing');
+    }
   });
 })();
