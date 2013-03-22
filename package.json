@@ -1,7 +1,7 @@
 {
   "name": "sock-band",
   "private": true,
-  "version": "0.0.1-11",
+  "version": "0.0.1-12",
   "author": "Casey Foster <c@sey.me>",
   "main": "server",
   "dependencies": {

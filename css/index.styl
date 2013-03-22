@@ -45,11 +45,36 @@ body
   height 120px
   dpr('/gfx/logo', 'png', 339px 100px, no-repeat center)
 
+.user-box
 .toggle-monitor
   position fixed
   top 0
-  right 0
   padding 10px
   background #d40
-  border-bottom-left-radius 3px
   box-shadow 0 1px 3px rgba(0, 0, 0, .5);
+
+.toggle-monitor
+  right 0
+  border-bottom-left-radius 3px
+  cursor pointer
+  .on-or-off
+    font-weight bold
+
+.user-box
+  left 0
+  border-bottom-right-radius 3px
+  .user-count
+    font-weight bold
+
+.source-link
+  display inline-block
+  margin-top 10px
+  padding 10px
+  color #fff
+  text-decoration none
+  background #d40
+  box-shadow 0 1px 3px rgba(0, 0, 0, .5);
+  border-radius 3px
+
+
+

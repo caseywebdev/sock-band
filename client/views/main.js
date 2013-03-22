@@ -18,15 +18,20 @@
         var sound = app.Sound.all.findWhere({charCode: ev.which});
         if (sound) sound.emit();
       });
+      this.listenTo(app.User.all, 'add remove', this.updateUserCount);
     },
 
     events: {
       'vclick .js-toggle-monitor': 'toggleMonitor'
     },
 
-    toggleMonitor: function (ev) {
+    toggleMonitor: function () {
       var on = app.monitor = !app.monitor;
-      $(ev.currentTarget).text('Monitor is ' + (on ? 'On' : 'Off'));
+      this.$('.js-on-or-off').text(on ? 'On' : 'Off');
+    },
+
+    updateUserCount: function (user, users) {
+      this.$('.js-user-count').text(users.length);
     }
   });
 })();
