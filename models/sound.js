@@ -62,49 +62,49 @@
       charCode: 81,
       name: 'E'
     }, {
-      id: 'eb-chord',
-      charCode: 87,
-      name: 'E♭'
-    }, {
       id: 'f-chord',
-      charCode: 69,
+      charCode: 87,
       name: 'F'
     }, {
       id: 'fs-chord',
-      charCode: 82,
+      charCode: 69,
       name: 'F♯'
     }, {
       id: 'g-chord',
-      charCode: 65,
+      charCode: 82,
       name: 'G'
     }, {
       id: 'gs-chord',
-      charCode: 83,
+      charCode: 65,
       name: 'G♯'
     }, {
       id: 'a-chord',
-      charCode: 68,
+      charCode: 83,
       name: 'A'
+    }, {
+      id: 'bb-chord',
+      charCode: 68,
+      name: 'B♭'
     }, {
       id: 'b-chord',
       charCode: 70,
       name: 'B'
     }, {
-      id: 'bb-chord',
-      charCode: 90,
-      name: 'B♭'
-    }, {
       id: 'c-chord',
-      charCode: 88,
+      charCode: 90,
       name: 'C'
     }, {
       id: 'cs-chord',
-      charCode: 67,
+      charCode: 88,
       name: 'C♯'
     }, {
       id: 'd-chord',
-      charCode: 86,
+      charCode: 67,
       name: 'D'
+    }, {
+      id: 'eb-chord',
+      charCode: 86,
+      name: 'E♭'
     }, {
       id: 'hh-closed',
       charCode: 73,
