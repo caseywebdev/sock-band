@@ -32,6 +32,7 @@
 
     updateUserCount: function (user, users) {
       this.$('.js-user-count').text(users.length);
+      this.$('.js-plural')[users.length === 1 ? 'hide' : 'show']();
     }
   });
 })();
