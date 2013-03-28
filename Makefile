@@ -1,7 +1,7 @@
 BIN=node_modules/.bin/
 NODEMON=$(BIN)nodemon
 MOCHA=$(BIN)mocha
-WATCHR=$(BIN)watchr
+WATCHY=$(BIN)watchy
 COGS=$(BIN)cogs index -gv -O '{"processors.tmpl.options.variable":"o","processors.styl.options.nib": true}' $(ARGS)
 
 dev:
@@ -28,7 +28,7 @@ test:
 	NODE_ENV=test $(MOCHA) --growl --colors --recursive
 
 test-w:
-	$(WATCHR) -w models,server,test -- make test > /dev/null
+	$(WATCHY) -w models,server,test -- make test > /dev/null
 
 convert:
 	./scripts/aif-to-mp3.sh

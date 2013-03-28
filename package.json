@@ -18,7 +18,8 @@
     "nodemon": "x",
     "stylus": "x",
     "uglify-js": "x",
-    "watchr": "git://github.com/caseywebdev/watchr#pre-bug",
+    "watchr": "2.3.3",
+    "watchy": "x",
     "cogs": "x"
   },
   "subdomain": "sockband",
