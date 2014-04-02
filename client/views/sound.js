@@ -5,11 +5,9 @@
 
   var app = window.app;
 
-  var jst = window.jst;
-
   app.SoundView = app.View.extend({
     className: 'sound',
-    template: jst['views/jst/sound'],
+    template: window['views/jst/sound'],
 
     render: function () {
       this.$el.html(this.template({sound: this.model}));

@@ -6,10 +6,10 @@ dev:
 	make -j server cogs
 
 server:
-	$(WATCHY) -w models,server -W 1 -- node server
+	$(WATCHY) -w models,server,views -- node server
 
 cogs:
-	$(COGS) -w client,models,css
+	$(COGS) -w client,models,css,views/jst
 
 compress:
 	$(COGS) -c
