@@ -15,8 +15,7 @@ compress:
 	$(COGS) -c
 
 deploy: compress
-	git commit -am "Release `date -u +%FT%TZ`"
-	git push
+	git push heroku master
 
 convert:
 	./scripts/aif-to-mp3.sh
