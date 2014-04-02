@@ -3,7 +3,6 @@ var config = require('../config');
 var express = require('express');
 var fs = require('fs');
 var io = require('socket.io');
-var os = require('os');
 
 var app = express();
 var server = app.listen(config.serverPort);
@@ -22,7 +21,7 @@ app.use(express.compress());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express['static'](__dirname + '/../../public'));
+app.use(express.static(__dirname + '/../../public'));
 
 // ## Custom Middleware
 app.use(function (req, res, next) {
@@ -36,9 +35,6 @@ app.use(function (req, res, next) {
   res.locals.config = config;
   res.locals.req = req;
   res.locals.variable = 'o';
-  try {
-    res.locals.ip = os.networkInterfaces().en0[1].address;
-  } catch (er) { console.error(er); }
   next();
 });
 
