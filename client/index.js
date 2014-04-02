@@ -5,7 +5,7 @@
 //= require node_modules/backbone/backbone.js
 //= require bower_components/dpr/dpr.js
 //= requireSelf
-//= require ./config
+//= require ./config.js
 //= requireTree ./setup
 //= requireTree ../models
 //= requireTree ../views/jst
