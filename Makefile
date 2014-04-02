@@ -14,7 +14,7 @@ cogs:
 compress:
 	$(COGS) -c
 
-deploy: compress
+deploy:
 	git push heroku master
 
 convert:
