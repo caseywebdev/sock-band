@@ -6,6 +6,7 @@
   "main": "server",
   "dependencies": {
     "backbone": "x",
+    "bower": "x",
     "cogs": "x",
     "csso": "x",
     "express": "x",
