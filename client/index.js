@@ -1,15 +1,15 @@
-//= require jquery/jquery
-//= require jquery-mobile-events/jquery-mobile-events
-//= require sound-manager-2/script/soundmanager2
-//= require underscore/underscore
-//= require backbone/backbone
-//= require dpr/dpr.js
+//= require bower_components/jquery/dist/jquery.js
+//= require bower_components/jquery-mobile-events/jquery-mobile-events.js
+//= require bower_components/sound-manager-2/script/soundmanager2.js
+//= require node_modules/underscore/underscore.js
+//= require node_modules/backbone/backbone.js
+//= require bower_components/dpr/dpr.js
 //= requireSelf
-//= require config
-//= requireTree setup
+//= require ./config
+//= requireTree ./setup
 //= requireTree ../models
 //= requireTree ../views/jst
-//= requireTree views
+//= requireTree ./views
 
 (function () {
   'use strict';

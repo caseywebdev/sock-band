@@ -1,4 +1,6 @@
 {
+  "name": "sock-band",
+  "private": true,
   "dependencies": {
     "dpr": "x",
     "jquery": "x",

@@ -1,0 +1,10 @@
+{
+  "options": {
+    "processors.tmpl.options.variable": "o",
+    "processors.styl.options.nib": true
+  },
+  "targets": {
+    "client/index.js": "public",
+    "css/index.styl": "public"
+  }
+}

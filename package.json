@@ -24,10 +24,9 @@
   },
   "subdomain": "sockband",
   "scripts": {
-    "start": "node server"
+    "postinstall": "scripts/postinstall.sh"
   },
   "engines": {
-    "node": "x",
-    "npm": "x"
+    "node": "0.10.x"
   }
 }

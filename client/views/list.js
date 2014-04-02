@@ -7,8 +7,9 @@
   var app = window.app;
 
   app.ListView = app.View.extend({
-    initialize: function () {
+    initialize: function (options) {
       app.View.prototype.initialize.apply(this, arguments);
+      this.modelView = options.modelView;
       this.listenTo(this.collection, {
         add: this.addModel,
         sort: this.sortModels,
@@ -19,7 +20,7 @@
 
     addModel: function (model) {
       if (this.views[model.cid]) return;
-      this.$el.append((this.views[model.cid] = new this.options.modelView({
+      this.$el.append((this.views[model.cid] = new this.modelView({
         collection: this.collection,
         model: model
       })).render().el);

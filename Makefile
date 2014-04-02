@@ -1,36 +1,24 @@
 BIN=node_modules/.bin/
-NODEMON=$(BIN)nodemon
-MOCHA=$(BIN)mocha
+COGS=$(BIN)cogs
 WATCHY=$(BIN)watchy
-COGS=$(BIN)cogs index -gv -O '{"processors.tmpl.options.variable":"o","processors.styl.options.nib": true}' $(ARGS)
 
 dev:
-	make -j server js-w css-w test-w
-
-compress:
-	make -j ARGS='-c' js css
+	make -j server cogs
 
 server:
-	$(NODEMON) -q server
+	$(WATCHY) -w models,server -W 1 -- node server
 
-js:
-	$(COGS) -o public/index.js -p views/jst,client,components,node_modules
+cogs:
+	$(COGS) -w client,models,css
 
-js-w:
-	make ARGS='-w models,views/jst,client/setup,client/views,client/config.js,client/index.js' js
-css:
-	$(COGS) -o public/index.css -p css,components,node_modules
+compress:
+	$(COGS) -c
 
-css-w:
-	make ARGS='-w css' css
-
-test:
-	NODE_ENV=test $(MOCHA) --growl --colors --recursive
-
-test-w:
-	$(WATCHY) -w models,server,test -- make test > /dev/null
+deploy: compress
+	git commit -am "Release `date -u +%FT%TZ`"
+	git push
 
 convert:
 	./scripts/aif-to-mp3.sh
 
-.PHONY: css server test
+.PHONY: server

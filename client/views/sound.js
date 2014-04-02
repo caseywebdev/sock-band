@@ -9,7 +9,7 @@
 
   app.SoundView = app.View.extend({
     className: 'sound',
-    template: jst['sound'],
+    template: jst['views/jst/sound'],
 
     render: function () {
       this.$el.html(this.template({sound: this.model}));
